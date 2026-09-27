@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 import CoreLocation
 
 struct StoreListView: View {
@@ -38,16 +39,16 @@ struct StoreListView: View {
         }
     }
 
-    /// 住所文字列を座標に変換（Appleのジオコーダーを使うので、緯度経度を自前で持つ必要がない）
+    /// 住所文字列を座標に変換（MKGeocodingRequest を使用）
     private func geocodeAllStores() async {
         await withTaskGroup(of: Void.self) { group in
             for store in stores {
                 group.addTask {
-                    let geocoder = CLGeocoder()
+                    guard let request = MKGeocodingRequest(addressString: store.address) else { return }
                     do {
-                        let placemarks = try await geocoder.geocodeAddressString(store.address)
-                        guard let coordinate = placemarks.first?.location?.coordinate else { return }
-                        
+                        let mapItems = try await request.mapItems
+                        guard let coordinate = mapItems.first?.location.coordinate else { return }
+
                         await MainActor.run {
                             store.coordinate = coordinate
                             if let current = locationManager.currentLocation {
@@ -82,6 +83,9 @@ struct StoreRow: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(store.name).font(.headline)
+                Text(store.nearestStation)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
                 Text(store.hours.isOpen() ? "営業中" : "営業時間外")
                     .font(.caption)
                     .foregroundColor(store.hours.isOpen() ? .green : .red)

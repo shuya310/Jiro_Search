@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Icon??.jpeg",
+      "filename" : "AppIcon.jpeg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Icon?? 1.jpeg",
+      "filename" : "AppIcon_dark.jpeg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "Icon?? 2.jpeg",
+      "filename" : "AppIcon_tinted.jpeg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

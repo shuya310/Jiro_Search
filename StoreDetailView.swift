@@ -9,7 +9,13 @@ struct StoreDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Text(store.name).font(.title).bold()
-                Text(store.address).foregroundColor(.secondary)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(store.address).foregroundColor(.secondary)
+                    Label(store.nearestStation, systemImage: "tram.fill")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
 
                 if let coordinate = store.coordinate {
                     Map(position: $cameraPosition) {
@@ -28,12 +34,31 @@ struct StoreDetailView: View {
                     }
                 }
 
-                Text(store.hours.isOpen() ? "現在営業中" : "現在営業時間外")
-                    .foregroundColor(store.hours.isOpen() ? .green : .red)
-                    .font(.headline)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(store.hours.isOpen() ? "現在営業中" : "現在営業時間外")
+                        .foregroundColor(store.hours.isOpen() ? .green : .red)
+                        .font(.headline)
+                    Text(store.hours.representativeHoursText)
+                        .font(.subheadline)
+                    Text(store.hours.closedDaysText)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+
+                if let twitter = store.twitterAccount {
+                    let handle = twitter.hasPrefix("@") ? String(twitter.dropFirst()) : twitter
+                    if let url = URL(string: "https://x.com/\(handle)") {
+                        Link(destination: url) {
+                            Label(twitter, systemImage: "link")
+                                .font(.subheadline)
+                        }
+                    }
+                }
 
                 if !store.note.isEmpty {
                     Text(store.note)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
 
                 if let distance = store.distanceMeters {
