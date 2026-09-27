@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
 <<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
       "filename" : "AppIcon.jpeg",
@@ -10,6 +11,9 @@
 =======
       "filename" : "AppIcon.jpeg",
 >>>>>>> 3d2e622 (首都圏38店舗データ追加・モデル刷新・ビルドエラー修正):RamenJiro_Search/Assets.xcassets/AppIcon.appiconset/Contents.json
+=======
+      "filename" : "Gemini_Generated_Image_6gzqj6gzqj6gzqj6.jpeg",
+>>>>>>> 4abe614365d8ff1588a7735d7be83347423d86b8
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -21,6 +25,7 @@
           "value" : "dark"
         }
       ],
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
 <<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
       "filename" : "AppIcon_dark.jpeg",
@@ -30,6 +35,9 @@
 =======
       "filename" : "AppIcon_dark.jpeg",
 >>>>>>> 3d2e622 (首都圏38店舗データ追加・モデル刷新・ビルドエラー修正):RamenJiro_Search/Assets.xcassets/AppIcon.appiconset/Contents.json
+=======
+      "filename" : "Gemini_Generated_Image_6gzqj6gzqj6gzqj6 1.jpeg",
+>>>>>>> 4abe614365d8ff1588a7735d7be83347423d86b8
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -41,6 +49,7 @@
           "value" : "tinted"
         }
       ],
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
 <<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
       "filename" : "AppIcon_tinted.jpeg",
@@ -50,6 +59,9 @@
 =======
       "filename" : "AppIcon_tinted.jpeg",
 >>>>>>> 3d2e622 (首都圏38店舗データ追加・モデル刷新・ビルドエラー修正):RamenJiro_Search/Assets.xcassets/AppIcon.appiconset/Contents.json
+=======
+      "filename" : "Gemini_Generated_Image_6gzqj6gzqj6gzqj6 2.jpeg",
+>>>>>>> 4abe614365d8ff1588a7735d7be83347423d86b8
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
