@@ -32,6 +32,7 @@ struct BusinessHours {
 }
 
 /// 各店舗の情報。座標と現在地からの距離は後から非同期に埋まるため @Published にしている
+@MainActor
 final class Store: Identifiable, ObservableObject {
     let id = UUID()
     let name: String

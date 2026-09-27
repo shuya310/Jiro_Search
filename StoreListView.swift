@@ -5,7 +5,6 @@ struct StoreListView: View {
     @StateObject private var locationManager = LocationManager()
     @State private var stores: [Store] = SampleData.jiroStores
     @State private var showOnlyOpen = false
-    private let geocoder = CLGeocoder()
 
     var sortedStores: [Store] {
         let filtered = showOnlyOpen ? stores.filter { $0.hours.isOpen() } : stores
@@ -28,26 +27,35 @@ struct StoreListView: View {
                         .toggleStyle(.switch)
                 }
             }
-            .onAppear {
+            .task {
                 locationManager.requestPermission()
-                geocodeAllStores()
+                await geocodeAllStores()
             }
-            .onReceive(locationManager.$currentLocation) { location in
-                guard let location = location else { return }
+            .onChange(of: locationManager.currentLocation) { _, newLocation in
+                guard let location = newLocation else { return }
                 updateDistances(from: location)
             }
         }
     }
 
     /// 住所文字列を座標に変換（Appleのジオコーダーを使うので、緯度経度を自前で持つ必要がない）
-    private func geocodeAllStores() {
-        for store in stores {
-            geocoder.geocodeAddressString(store.address) { placemarks, error in
-                guard let coordinate = placemarks?.first?.location?.coordinate else { return }
-                DispatchQueue.main.async {
-                    store.coordinate = coordinate
-                    if let current = locationManager.currentLocation {
-                        updateDistance(for: store, from: current)
+    private func geocodeAllStores() async {
+        await withTaskGroup(of: Void.self) { group in
+            for store in stores {
+                group.addTask {
+                    let geocoder = CLGeocoder()
+                    do {
+                        let placemarks = try await geocoder.geocodeAddressString(store.address)
+                        guard let coordinate = placemarks.first?.location?.coordinate else { return }
+                        
+                        await MainActor.run {
+                            store.coordinate = coordinate
+                            if let current = locationManager.currentLocation {
+                                updateDistance(for: store, from: current)
+                            }
+                        }
+                    } catch {
+                        print("ジオコーディングエラー(\(store.name)): \(error.localizedDescription)")
                     }
                 }
             }
