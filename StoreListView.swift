@@ -62,46 +62,18 @@ struct StoreListView: View {
         }
     }
 
-<<<<<<< HEAD:StoreListView.swift
-<<<<<<< HEAD:StoreListView.swift
-<<<<<<< HEAD:StoreListView.swift
-    /// 住所文字列を座標に変換（MKGeocodingRequest を使用）
-=======
-    /// 住所文字列を座標に変換（Appleのジオコーダーを使うので、緯度経度を自前で持つ必要がない）
->>>>>>> a6f236f (アイコンの設定):RamenJiro_Search/StoreListView.swift
-=======
-    /// 住所文字列を座標に変換（MKGeocodingRequest を使用）
->>>>>>> 3d2e622 (首都圏38店舗データ追加・モデル刷新・ビルドエラー修正):RamenJiro_Search/StoreListView.swift
-=======
     /// 住所文字列を座標に変換(MKGeocodingRequest を使用)
->>>>>>> bef8202 (Fix: 距離表示が8000km以上になる問題を修正):RamenJiro_Search/StoreListView.swift
     private func geocodeAllStores() async {
         print("🗺️ ジオコーディング開始")
-        
+
         await withTaskGroup(of: Void.self) { group in
             for store in stores {
                 group.addTask {
-<<<<<<< HEAD:StoreListView.swift
-<<<<<<< HEAD:StoreListView.swift
                     guard let request = MKGeocodingRequest(addressString: store.address) else { return }
                     do {
                         let mapItems = try await request.mapItems
                         guard let coordinate = mapItems.first?.location.coordinate else { return }
 
-=======
-                    let geocoder = CLGeocoder()
-                    do {
-                        let placemarks = try await geocoder.geocodeAddressString(store.address)
-                        guard let coordinate = placemarks.first?.location?.coordinate else { return }
-                        
->>>>>>> a6f236f (アイコンの設定):RamenJiro_Search/StoreListView.swift
-=======
-                    guard let request = MKGeocodingRequest(addressString: store.address) else { return }
-                    do {
-                        let mapItems = try await request.mapItems
-                        guard let coordinate = mapItems.first?.location.coordinate else { return }
-
->>>>>>> 3d2e622 (首都圏38店舗データ追加・モデル刷新・ビルドエラー修正):RamenJiro_Search/StoreListView.swift
                         await MainActor.run {
                             store.coordinate = coordinate
                             if let current = locationManager.currentLocation {
