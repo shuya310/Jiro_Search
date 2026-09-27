@@ -1,7 +1,11 @@
 {
   "images" : [
     {
+<<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
       "filename" : "AppIcon.jpeg",
+=======
+      "filename" : "Icon??.jpeg",
+>>>>>>> a6f236f (アイコンの設定):RamenJiro_Search/Assets.xcassets/AppIcon.appiconset/Contents.json
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +17,11 @@
           "value" : "dark"
         }
       ],
+<<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
       "filename" : "AppIcon_dark.jpeg",
+=======
+      "filename" : "Icon?? 1.jpeg",
+>>>>>>> a6f236f (アイコンの設定):RamenJiro_Search/Assets.xcassets/AppIcon.appiconset/Contents.json
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +33,11 @@
           "value" : "tinted"
         }
       ],
+<<<<<<< HEAD:Assets.xcassets/AppIcon.appiconset/Contents.json
       "filename" : "AppIcon_tinted.jpeg",
+=======
+      "filename" : "Icon?? 2.jpeg",
+>>>>>>> a6f236f (アイコンの設定):RamenJiro_Search/Assets.xcassets/AppIcon.appiconset/Contents.json
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
