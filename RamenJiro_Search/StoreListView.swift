@@ -19,10 +19,19 @@ struct StoreListView: View {
 
     var body: some View {
         NavigationStack {
-            List(sortedStores) { store in
-                NavigationLink(destination: StoreDetailView(store: store)) {
-                    StoreRow(store: store)
+            List {
+                ForEach(sortedStores) { store in
+                    NavigationLink(destination: StoreDetailView(store: store)) {
+                        StoreRow(store: store)
+                    }
                 }
+
+                Text("Copyrights 2026 shuya310.")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
             }
             .navigationTitle("二郎 直系店マップ")
             .toolbar {
