@@ -255,6 +255,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RamenJiro-Search-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ラーメン二郎 探索";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationUsageDescription = "近くのラーメン二郎の店舗を表示します";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地から近い二郎直系店舗を表示するために使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -266,7 +268,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuya310.RamenJiro-Search.RamenJiro-Search";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -290,6 +292,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RamenJiro-Search-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ラーメン二郎 探索";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationUsageDescription = "近くのラーメン二郎の店舗を表示します";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地から近い二郎直系店舗を表示するために使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -301,7 +305,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuya310.RamenJiro-Search.RamenJiro-Search";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

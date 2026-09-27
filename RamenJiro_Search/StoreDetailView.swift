@@ -18,12 +18,23 @@ struct StoreDetailView: View {
                 }
 
                 if let coordinate = store.coordinate {
-                    Map(position: $cameraPosition) {
+                    Map(position: $cameraPosition, interactionModes: []) {
                         Marker(store.name, coordinate: coordinate)
                             .tint(.red)
                     }
                     .frame(height: 200)
                     .cornerRadius(12)
+                    .overlay(alignment: .bottomTrailing) {
+                        Label("マップで開く", systemImage: "arrow.up.right.square")
+                            .font(.caption)
+                            .padding(6)
+                            .background(.ultraThinMaterial, in: Capsule())
+                            .padding(8)
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        openInMaps(coordinate: coordinate)
+                    }
                     .onAppear {
                         cameraPosition = .region(
                             MKCoordinateRegion(
@@ -70,5 +81,12 @@ struct StoreDetailView: View {
         }
         .navigationTitle(store.name)
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func openInMaps(coordinate: CLLocationCoordinate2D) {
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let mapItem = MKMapItem(location: location, address: nil)
+        mapItem.name = store.name
+        mapItem.openInMaps()
     }
 }
