@@ -88,12 +88,14 @@ final class Store: Identifiable, ObservableObject {
     @Published var distanceMeters: Double?
 
     init(name: String, address: String, nearestStation: String,
-         hours: BusinessHours, twitterAccount: String? = nil, note: String = "") {
+         hours: BusinessHours, twitterAccount: String? = nil, note: String = "",
+         coordinate: CLLocationCoordinate2D? = nil) {
         self.name = name
         self.address = address
         self.nearestStation = nearestStation
         self.hours = hours
         self.twitterAccount = twitterAccount
         self.note = note
+        self.coordinate = coordinate
     }
 }
