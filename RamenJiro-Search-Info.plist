@@ -6,7 +6,5 @@
 	<array>
 		<dict/>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>現在地から近い二郎直系店舗を表示するために使用します。</string>
 </dict>
 </plist>

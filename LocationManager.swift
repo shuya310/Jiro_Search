@@ -16,7 +16,9 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     }
 
     func requestPermission() {
+        print("📱 位置情報の許可をリクエスト")
         manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
 
     func startUpdating() {
@@ -30,7 +32,9 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         Task { @MainActor in
             authorizationStatus = manager.authorizationStatus
+            print("🔐 位置情報の許可状態: \(authorizationStatus.rawValue)")
             if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
+                print("✅ 位置情報の取得を開始")
                 startUpdating()
             }
         }
@@ -39,6 +43,9 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Task { @MainActor in
             currentLocation = locations.last
+            if let location = currentLocation {
+                print("📍 現在地更新: (\(location.coordinate.latitude), \(location.coordinate.longitude))")
+            }
         }
     }
 
