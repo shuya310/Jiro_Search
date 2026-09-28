@@ -14,11 +14,11 @@
   <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
 </p>
 
-## スクリーンショット
+## 画面イメージ
 
 | 店舗一覧 | 営業中のみ表示 | 店舗詳細 |
 |:---:|:---:|:---:|
-| <img src="docs/images/list_all.png"> | <img src="docs/images/list_open_only.png"> | <img src="docs/images/detail.png"> |
+| <img src="docs/images/list_all.png" width="250"> | <img src="docs/images/list_open_only.png" width="250"> | <img src="docs/images/detail.png" width="250"> |
 | 現在地から近い順に並び、営業中かどうかが一目で分かります | 右上のスイッチで営業時間外の店舗を非表示にできます | 営業時間・定休日・地図を確認でき、地図をタップするとマップAppで開きます |
 
 > スクリーンショットは東京駅を現在地として撮影しています。
